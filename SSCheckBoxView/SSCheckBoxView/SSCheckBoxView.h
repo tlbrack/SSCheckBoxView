@@ -24,6 +24,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef enum SSCheckBoxViewStyle_ {
     kSSCheckBoxViewStyleBox = 0,
@@ -31,11 +32,11 @@ typedef enum SSCheckBoxViewStyle_ {
     kSSCheckBoxViewStyleGlossy,
     kSSCheckBoxViewStyleGreen,
     kSSCheckBoxViewStyleMono,
-
+    kSSCheckBoxViewStyleOrange,
     kSSCheckBoxViewStylesCount
 } SSCheckBoxViewStyle;
 
-@interface SSCheckBoxView: UIView
+@interface SSCheckBoxView : UIView
 {
     SSCheckBoxViewStyle style;
     BOOL checked;
@@ -57,6 +58,7 @@ typedef enum SSCheckBoxViewStyle_ {
 @property (nonatomic, readonly) BOOL checked;
 @property (nonatomic, getter=enabled, setter=setEnabled:) BOOL enabled;
 @property (nonatomic, copy) void (^stateChangedBlock)(SSCheckBoxView *cbv);
+@property (nonatomic, readonly) UILabel *label;
 
 - (id) initWithFrame:(CGRect)frame
                style:(SSCheckBoxViewStyle)aStyle

@@ -61,7 +61,7 @@ static const CGFloat kHeight = 36.0f;
 
     CGRect labelFrame = CGRectMake(32.0f, 7.0f, self.frame.size.width - 32, 20.0f);
     UILabel *l = [[UILabel alloc] initWithFrame:labelFrame];
-    l.textAlignment = UITextAlignmentLeft;
+    l.textAlignment = NSTextAlignmentLeft;
     l.backgroundColor = [UIColor clearColor];
     l.font = [UIFont fontWithName:@"Helvetica-Bold" size:15];
     l.textColor = RgbHex2UIColor(0x2E, 0x2E, 0x2E);
@@ -99,6 +99,11 @@ static const CGFloat kHeight = 36.0f;
 - (BOOL) enabled
 {
     return enabled;
+}
+
+- (UILabel*) label
+{
+    return textLabel;
 }
 
 - (void) setText:(NSString *)text
@@ -208,10 +213,13 @@ static const CGFloat kHeight = 36.0f;
         case kSSCheckBoxViewStyleMono:
             imageName = @"cb_mono_";
             break;
+        case kSSCheckBoxViewStyleOrange:
+            imageName = @"cb_orange_";
+            break;
         default:
             return nil;
     }
-    imageName = [NSString stringWithFormat:@"%@%@", imageName, suffix];
+    imageName = [NSString stringWithFormat:@"ZMLibraryResources.bundle/%@%@", imageName, suffix];
     return [UIImage imageNamed:imageName];
 }
 

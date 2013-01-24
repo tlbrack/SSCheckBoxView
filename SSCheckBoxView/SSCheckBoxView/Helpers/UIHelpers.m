@@ -24,6 +24,7 @@
 //
 
 #import "UIHelpers.h"
+#import <UIKit/UIKit.h>
 
 @implementation UIHelpers
 
